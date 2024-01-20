@@ -1,0 +1,33 @@
+$ss_blocks_contenteditable $mol_view
+	Blocks $ss_blocks
+		focus_history_dom_ids => focus_history_dom_ids
+		Block* => Block*
+		beforeinput? => blocks_beforeinput?
+		keydown? => blocks_keydown?
+		input? => blocks_input?
+		dragenter? => blocks_dragenter?
+		drop? => blocks_drop?
+		drag? => blocks_drag?
+		dragleave? => blocks_dragleave?
+		paste? => blocks_paste?
+		cut? => blocks_cut?
+		onselectionchange <= onselectionchange null
+	sub /
+		<= Body $mol_view
+		- <= Caret $mol_view
+	field *
+		^
+		contentEditable true
+		spellcheck false
+		- contentEditable \plaintext-only
+	event *
+		^
+		beforeinput? <=> blocks_beforeinput?
+		keydown? <=> blocks_keydown?
+		input? <=> blocks_input?
+		dragenter? <=> blocks_dragenter?
+		drop? <=> blocks_drop?
+		drag? <=> blocks_drag?
+		dragleave? <=> blocks_dragleave?
+		paste? <=> blocks_paste?
+		cut? <=> blocks_cut?

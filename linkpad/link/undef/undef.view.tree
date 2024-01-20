@@ -1,0 +1,36 @@
+$ss_linkpad_link_undef $ss_linkpad_link_default
+	icon \❔
+	insert_view /
+		<= Insert_row $ss_blocks_noedit
+			sub /
+				<= Insert_button $ss_blocks_noedit
+					sub /
+						<= Insert $mol_button_minor
+							title \New
+							minimal_height 0
+							minimal_width 0
+							click? <=> insert? null
+				<= Insert_label $ss_blocks_noedit
+					sub / \[Enter]
+	name_focused? false
+	Label $mol_pop_over
+		showed? <= name_focused? false
+		align <= test \bottom_right
+		Anchor <= Anchor $mol_view
+			sub /
+				<= Name
+				<= Link_id
+		bubble_content / 
+			<= Autocomplete_bubble_content $ss_editor_noedit
+				sub / 
+					<= Bubble_pane
+	Link_id $ss_blocks_noedit
+		sub / \?
+	autocomplete false
+	Autocomplete $mol_select
+		no_options_message \Not found
+		event_select*? <=> event_select*? null
+		Bubble_pane => Bubble_pane
+		dictionary <= select_dict *
+		filter_pattern <= filter_pattern \
+		options_filtered => options_filtered

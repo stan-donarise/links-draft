@@ -1,0 +1,8 @@
+[ss_blocks_contenteditable_caret] {
+	width: 1px;
+	height: 10px;
+	background: red;
+	position: fixed;
+	left: 10px;
+	top: 10px;
+}

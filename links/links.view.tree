@@ -1,0 +1,27 @@
+$ss_links $mol_book2
+	title \Links
+	Placeholder null
+	submit_button /
+		<= Submit $mol_button_minor
+			title \Submit
+			event_click? <=> submit? null
+		<= Demo $mol_button_minor
+			title \Demo
+			event_click? <=> demo? null
+	Editor* $ss_linkpad
+		pages => editor_pages*
+		hide_contain? <=> hide_contain?
+		raw_gql_path? <= opened_path? \
+	Hide_contain $mol_check_box
+		title \Collapse contain
+		checked? <=> hide_contain? false
+	opened_editor_pages /
+	pages /
+		<= Menu $mol_page
+			title \Links
+			body /
+				<= Gql_path_field $mol_form_field
+					name \GQL path
+					Content <= Gql_path $mol_string
+						value? <=> raw_gql_path? \
+		^ opened_editor_pages
